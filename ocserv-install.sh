@@ -1,11 +1,16 @@
 #!/usr/bin/bash
 
 echo "OpenConnect Server (ocserv) installation initiated..."
-apt install -y docker.io
+apt update && apt install -y docker.io
 # Installing base on IP or Domain
 # NOTE: escape characters are not supported.
 echo -e "Installing on:\n1.IP\n2.Domain"
 read -p "Enter your choice: " -e -i "2" address_type
+
+while [ "$address_type" != "1" ] && [ "$address_type" != "2" ]; do
+    echo "Invalid input"
+    read -p "Installing on:\n1.IP\n2.Domain\nEnter your choice: " -e -i "2" address_type
+done
 
 if [ "$address_type" == "1" ]; then
     # Get user input for IP
@@ -29,9 +34,6 @@ elif [ "$address_type" == "2" ]; then
     echo "Modifying docker entrypoint.sh..."
     sed -i "s/^address=.*/address=$address/" ./entrypoint.sh
     sed -i "s/^address_type=.*/address_type=$address_type/" ./entrypoint.sh
-else
-    echo "Invalid input"
-    read -p "Installing on:\n1.IP\n2.Domain\nEnter your choice: " -e -i "2" address_type
 fi  
 
 # Get user input for ingress port
