@@ -7,7 +7,7 @@ LABEL org.opencontainers.image.authors="imananoosheh@gmail.com"
 
 RUN set -ex \
     && apt-get update \
-    && apt-get install -y curl libgnutls28-dev libev-dev autoconf automake xz-utils \
+    && apt-get install -y curl libgnutls28-dev libev-dev autoconf automake xz-utils less \
     && apt-get install -y node-undici libpam0g-dev liblz4-dev libseccomp-dev \
 	libreadline-dev libnl-route-3-dev libkrb5-dev libradcli-dev \
 	libcurl4-gnutls-dev libcjose-dev libjansson-dev liboath-dev \
