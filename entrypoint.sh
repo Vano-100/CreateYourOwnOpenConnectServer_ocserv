@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 # address_type: 1 - IP, 2 - Domain
-address_type=2
+address_type=1
 address=example.com
 address_uppercase=$(echo $address | sed 's/.*/\U&/')
 org_name="$address_uppercase VPN"

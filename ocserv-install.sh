@@ -14,7 +14,7 @@ done
 
 if [ "$address_type" == "1" ]; then
     # Get user input for IP
-    read -p "Enter IP address: " -e -i "89.207.132.170" address
+    read -p "Enter IP address: " -e -i "142.93.111.130" address
     # Modify ocserv.conf
     echo "Modifying ocserv.conf..."
     sed -i "s/^default-domain =.*/default-domain = $address/" ./ocserv.conf
